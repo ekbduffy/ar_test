@@ -21,4 +21,4 @@ spec:
       - validate=false
     automated:
       prune: false
-      selfHeal: true
+#      selfHeal: true
