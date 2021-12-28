@@ -1,0 +1,7 @@
+{ 
+  "appname": "engineering-dev3",
+  "repoUrl": "https://github.com/ekbduffy/ar_test.git",
+  "targetRevision": "test2",
+  "appPath": "charts/",
+  "namespace": "ivantest"
+}
