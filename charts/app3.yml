@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apptest3
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: 'https://github.com/ekbduffy/ar_test.git'
+    targetRevision: HEAD
+    path: './appsets'
+    directory: 
+      recurse: true
+    
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=false
+      - validate=false
+    automated:
+      prune: false
+      selfHeal: true
