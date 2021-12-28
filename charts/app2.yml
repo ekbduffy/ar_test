@@ -7,7 +7,7 @@ metadata:
       notifications.argoproj.io/subscribe.on-deployed.email: 'ivan@skolka.ru'
 spec:
   destination:
-    namespace: default
+    namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
