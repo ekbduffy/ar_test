@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: test-app-set
+spec:
+  generators:
+  - git: 
+      repoURL: https://github.com/ekbduffy/ar_test.git
+      revision: HEAD
+      files:
+      - path: appset1/*
+
+  template: 
+    # An Argo CD Application template, with support for parameter substitution 
+    # with values from parameters generated above.
+    metadata:
+      name: '{{appname}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repoUrl}}'
+        targetRevision: '{{targetRevision}}'
+        path: '{{appPath}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy: 
+        automated: 
+          selfHeal: true
+          prune: true
