@@ -1,0 +1,11 @@
+resources:
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      creationTimestamp: "2022-01-13T12:41:14Z"
+      labels:
+        app.kubernetes.io/name: argocd-cm
+        app.kubernetes.io/part-of: argocd
+      name: test-cm
+    data:
+     testValue: "test"
